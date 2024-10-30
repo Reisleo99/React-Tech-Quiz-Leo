@@ -13,14 +13,18 @@
     "client:dev": "cd client && npm run dev",
     "build": "cd server && npm run build",
     "seed": "cd server && npm run seed",
-    "render-build": "npm install && npm run build"
+    "render-build": "npm install && npm run build",
+    "cypress": "cypress open",
+    "test": "npx cypress run --browser electron --headless",
+    "test-gui": "npx cypress open --detached"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@cypress/webpack-preprocessor": "^6.0.2",
     "@types/react": "^18.3.3",
-    "@vitejs/plugin-react": "^4.3.1",
+    "@vitejs/plugin-react": "^4.3.3",
     "concurrently": "^8.2.2",
     "cypress": "^13.15.1",
     "nodemon": "^3.1.3",
@@ -30,5 +34,8 @@
     "typescript": "^5.5.3",
     "vitest": "^2.0.3",
     "wait-on": "^7.2.0"
+  },
+  "dependencies": {
+    "vite": "^5.4.10"
   }
 }

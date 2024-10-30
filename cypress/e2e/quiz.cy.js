@@ -1,41 +1,44 @@
-describe('Tech Thoughts Website', () => {
+/// <reference types="cypress" />
+import Quiz from '../../src/components/Quiz';
+import '../../src/App.css';
+
+describe('Quiz Component', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000/');
+    cy.fixture('questions').then((questions) => {
+      cy.intercept('GET', '**/api/questions', questions).as('getQuestions');
+      cy.mount(<Quiz />);
+    });
   });
 
-  it('should display the title text on the screen', () => {
-    cy.visit('http://localhost:3000/');
-    cy.findByRole('heading', { name: 'Tech Thoughts' }).should('be.visible');
+  it('should render the start button initially', () => {
+    cy.get('button').contains('Start Quiz').should('be.visible');
   });
 
-  it('should display a card on the screen if data is retrieved', () => {
-    cy.get('.card').should('be.visible');
+  it('should start the quiz and display the first question', () => {
+    cy.get('button').contains('Start Quiz').click();
+    cy.wait('@getQuestions');
+    cy.get('h2').should('contain.text', 'What is the capital of France?');
   });
 
-  it('should display the correct number of cards based on data retrieved', () => {
-    cy.get('.card .card-body').should(($el) => {
-      const cards = $el.map((i, el) => {
-        return Cypress.$(el).attr('card-body');
-      });
-      cards.each((i, cardNames) => {
-        expect(cardNames).to('be.visible');
-      })
-    })
+  it('should display options and handle answer selection', () => {
+    cy.get('button').contains('Start Quiz').click();
+    cy.wait('@getQuestions');
+
+    cy.get('[data-cy=answer-option]').should('have.length', 4);
+
+    cy.get('[data-cy=answer-option]').first().click();
+    cy.get('h2').should('not.contain.text', 'What is the capital of France?');
   });
 
-  it('should not display any content in the thought submission form', () => {
-    cy.get('form').findByPlaceholderText('Here\'s a new thought...').should('be.visible');
-    cy.get('form div textarea').should('be.empty');
-  });
+  it('should complete the quiz and show the score', () => {
+    cy.get('button').contains('Start Quiz').click();
+    cy.wait('@getQuestions');
 
-  it('should not display any Comments on the page', () => {
-    cy.get('container main .card .card-body').should(($el) => {
-      const cards = [
-        ...$el.map((i, el) => {
-          return Cypress.$(el).text();
-        })
-      ].filter((text) => !text.includes("Comments"));
-      expect(cards).length(0);
-    })
+    cy.get('[data-cy=answer-option]').each((button) => {
+      cy.wrap(button).click();
+    });
+
+    cy.get('h2').should('contain.text', 'Quiz Completed');
+    cy.get('.alert-success').should('contain.text', 'Your score:');
   });
 });
