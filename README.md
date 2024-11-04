@@ -68,7 +68,7 @@ This project uses Cypress for both component and end-to-end testing.
   -End-to-End Testing: To test the entire user flow and ensure smooth functionality.
 
 ## Walkthrough Video
-A walkthrough video demonstrating the setup, functionality, and testing of this project will be available here soon.
+[Tech-Quiz-Video](https://drive.google.com/file/d/1-fJFvsQDYc9iL6wciz-YTPVzG2h0MgYo/view?usp=drive_link).
 
 ## License
 This project is licensed under the MIT License. See the LICENSE file for details.
