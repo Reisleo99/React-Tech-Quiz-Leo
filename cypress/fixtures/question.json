@@ -1,102 +1,74 @@
-[
-  {
-    "_id": "6726f40f9662d6ecb6f798eb",
-    "question": "What is the output of print(2 ** 3)?",
-    "answers": [
-      { "text": "6", "isCorrect": false, "_id": "6726f40f9662d6ecb6f798ec" },
-      { "text": "8", "isCorrect": true, "_id": "6726f40f9662d6ecb6f798ed" },
-      { "text": "9", "isCorrect": false, "_id": "6726f40f9662d6ecb6f798ee" },
-      { "text": "12", "isCorrect": false, "_id": "6726f40f9662d6ecb6f798ef" }
-    ]
+[{
+  "_id": {
+    "$oid": "67293a945fc824773535cddf"
   },
-  {
-    "_id": "6726f40f9662d6ecb6f798f0",
-    "question": "Which of the following is a mutable data type in Python?",
-    "answers": [
-      { "text": "str", "isCorrect": false, "_id": "6726f40f9662d6ecb6f798f1" },
-      { "text": "tuple", "isCorrect": false, "_id": "6726f40f9662d6ecb6f798f2" },
-      { "text": "list", "isCorrect": true, "_id": "6726f40f9662d6ecb6f798f3" },
-      { "text": "int", "isCorrect": false, "_id": "6726f40f9662d6ecb6f798f4" }
-    ]
+  "question": "What is the output of print(2 ** 3)?",
+  "answers": [
+    {
+      "text": "6",
+      "isCorrect": false,
+      "_id": {
+        "$oid": "67293a945fc824773535cde0"
+      }
+    },
+    {
+      "text": "8",
+      "isCorrect": true,
+      "_id": {
+        "$oid": "67293a945fc824773535cde1"
+      }
+    },
+    {
+      "text": "9",
+      "isCorrect": false,
+      "_id": {
+        "$oid": "67293a945fc824773535cde2"
+      }
+    },
+    {
+      "text": "12",
+      "isCorrect": false,
+      "_id": {
+        "$oid": "67293a945fc824773535cde3"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67293a945fc824773535cde4"
   },
-  {
-    "_id": "6726f40f9662d6ecb6f798f5",
-    "question": "What is the keyword used to define a function in Python?",
-    "answers": [
-      { "text": "function", "isCorrect": false, "_id": "6726f40f9662d6ecb6f798f6" },
-      { "text": "func", "isCorrect": false, "_id": "6726f40f9662d6ecb6f798f7" },
-      { "text": "def", "isCorrect": true, "_id": "6726f40f9662d6ecb6f798f8" },
-      { "text": "define", "isCorrect": false, "_id": "6726f40f9662d6ecb6f798f9" }
-    ]
-  },
-  {
-    "_id": "6726f40f9662d6ecb6f798fa",
-    "question": "Which of the following is used to create an empty set?",
-    "answers": [
-      { "text": "{}", "isCorrect": false, "_id": "6726f40f9662d6ecb6f798fb" },
-      { "text": "[]", "isCorrect": false, "_id": "6726f40f9662d6ecb6f798fc" },
-      { "text": "set()", "isCorrect": true, "_id": "6726f40f9662d6ecb6f798fd" },
-      { "text": "()", "isCorrect": false, "_id": "6726f40f9662d6ecb6f798fe" }
-    ]
-  },
-  {
-    "_id": "6726f40f9662d6ecb6f798ff",
-    "question": "What is the output of len('hello world')?",
-    "answers": [
-      { "text": "10", "isCorrect": false, "_id": "6726f40f9662d6ecb6f79900" },
-      { "text": "11", "isCorrect": true, "_id": "6726f40f9662d6ecb6f79901" },
-      { "text": "12", "isCorrect": false, "_id": "6726f40f9662d6ecb6f79902" },
-      { "text": "13", "isCorrect": false, "_id": "6726f40f9662d6ecb6f79903" }
-    ]
-  },
-  {
-    "_id": "6726f40f9662d6ecb6f79904",
-    "question": "Which method is used to remove whitespace from the beginning and end of a string?",
-    "answers": [
-      { "text": "strip()", "isCorrect": true, "_id": "6726f40f9662d6ecb6f79905" },
-      { "text": "trim()", "isCorrect": false, "_id": "6726f40f9662d6ecb6f79906" },
-      { "text": "clean()", "isCorrect": false, "_id": "6726f40f9662d6ecb6f79907" },
-      { "text": "remove()", "isCorrect": false, "_id": "6726f40f9662d6ecb6f79908" }
-    ]
-  },
-  {
-    "_id": "6726f40f9662d6ecb6f79909",
-    "question": "What does the // operator do in Python?",
-    "answers": [
-      { "text": "Performs integer division", "isCorrect": true, "_id": "6726f40f9662d6ecb6f7990a" },
-      { "text": "Performs floating-point division", "isCorrect": false, "_id": "6726f40f9662d6ecb6f7990b" },
-      { "text": "Calculates the power of a number", "isCorrect": false, "_id": "6726f40f9662d6ecb6f7990c" },
-      { "text": "Performs a logical AND operation", "isCorrect": false, "_id": "6726f40f9662d6ecb6f7990d" }
-    ]
-  },
-  {
-    "_id": "6726f40f9662d6ecb6f7990e",
-    "question": "Which of the following is a valid variable name in Python?",
-    "answers": [
-      { "text": "1_variable", "isCorrect": false, "_id": "6726f40f9662d6ecb6f7990f" },
-      { "text": "variable_1", "isCorrect": true, "_id": "6726f40f9662d6ecb6f79910" },
-      { "text": "variable-1", "isCorrect": false, "_id": "6726f40f9662d6ecb6f79911" },
-      { "text": "variable 1", "isCorrect": false, "_id": "6726f40f9662d6ecb6f79912" }
-    ]
-  },
-  {
-    "_id": "6726f40f9662d6ecb6f79913",
-    "question": "What is the output of type(3.14)?",
-    "answers": [
-      { "text": "<class 'int'>", "isCorrect": false, "_id": "6726f40f9662d6ecb6f79914" },
-      { "text": "<class 'float'>", "isCorrect": true, "_id": "6726f40f9662d6ecb6f79915" },
-      { "text": "<class 'complex'>", "isCorrect": false, "_id": "6726f40f9662d6ecb6f79916" },
-      { "text": "<class 'decimal'>", "isCorrect": false, "_id": "6726f40f9662d6ecb6f79917" }
-    ]
-  },
-  {
-    "_id": "6726f40f9662d6ecb6f79918",
-    "question": "Which of the following statements is used to handle exceptions in Python?",
-    "answers": [
-      { "text": "catch", "isCorrect": false, "_id": "6726f40f9662d6ecb6f79919" },
-      { "text": "except", "isCorrect": true, "_id": "6726f40f9662d6ecb6f7991a" },
-      { "text": "handle", "isCorrect": false, "_id": "6726f40f9662d6ecb6f7991b" },
-      { "text": "try", "isCorrect": false, "_id": "6726f40f9662d6ecb6f7991c" }
-    ]
-  }
-]
+  "question": "Which of the following is a mutable data type in Python?",
+  "answers": [
+    {
+      "text": "str",
+      "isCorrect": false,
+      "_id": {
+        "$oid": "67293a945fc824773535cde5"
+      }
+    },
+    {
+      "text": "tuple",
+      "isCorrect": false,
+      "_id": {
+        "$oid": "67293a945fc824773535cde6"
+      }
+    },
+    {
+      "text": "list",
+      "isCorrect": true,
+      "_id": {
+        "$oid": "67293a945fc824773535cde7"
+      }
+    },
+    {
+      "text": "int",
+      "isCorrect": false,
+      "_id": {
+        "$oid": "67293a945fc824773535cde8"
+      }
+    }
+  ],
+  "__v": 0
+}]

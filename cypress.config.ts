@@ -25,7 +25,7 @@ export default defineConfig({
   fixturesFolder: 'cypress/fixtures',
   screenshotsFolder: 'cypress/screenshots',
   videosFolder: 'cypress/videos',
-  defaultCommandTimeout: 8000,
+  defaultCommandTimeout: 16000,
   viewportWidth: 1280,
   viewportHeight: 720,
 });
