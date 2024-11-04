@@ -6,8 +6,6 @@ export default defineConfig({
     setupNodeEvents(on, config) {
       return config;
     },
-    supportFile: 'cypress/support/e2e.ts',
-    specPattern: 'cypress/e2e/**/*.cy.{js,ts}',
   },
 
   component: {
@@ -18,14 +16,7 @@ export default defineConfig({
     setupNodeEvents(on, config) {
       return config;
     },
-    supportFile: 'cypress/support/component.ts',
-    specPattern: 'cypress/component/**/*.cy.{js,ts,jsx,tsx}',
+    specPattern: "cypress/components/**/*.cy.{ts,tsx,jsx}",
   },
 
-  fixturesFolder: 'cypress/fixtures',
-  screenshotsFolder: 'cypress/screenshots',
-  videosFolder: 'cypress/videos',
-  defaultCommandTimeout: 16000,
-  viewportWidth: 1280,
-  viewportHeight: 720,
 });
