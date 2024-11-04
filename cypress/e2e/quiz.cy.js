@@ -1,44 +1,77 @@
-/// <reference types="cypress" />
-import Quiz from '../../src/components/Quiz';
-import '../../src/App.css';
+describe('Quiz Test', () => {
 
-describe('Quiz Component', () => {
-  beforeEach(() => {
-    cy.fixture('questions').then((questions) => {
-      cy.intercept('GET', '**/api/questions', questions).as('getQuestions');
-      cy.mount(<Quiz />);
+  context('Start quiz on Start button', () => {
+
+    beforeEach(() => {
+      cy.fixture('question').then((questions) => {
+        cy.intercept('GET', '/api/questions/random', {
+          statusCode: 200,
+          body: questions,
+        }).as('fetchQuestions');
+      });
+      cy.visit('/');
+    });
+
+    it('should complete the quiz with all correct answers and show perfect score', () => {
+      cy.findByText('Start Quiz').click();
+
+      cy.wait('@fetchQuestions').then(() => {
+        cy.fixture('question').then((questions) => {
+          answerQuestions(questions, true);
+
+          cy.get('.card').should('be.visible');
+          cy.findByText('Quiz Completed').should('be.visible');
+          cy.findByText(`Your score: ${questions.length}/${questions.length}`).should('be.visible');
+          cy.findByText('Take New Quiz').should('be.visible');
+        });
+      });
+    });
+
+    it('should complete the quiz with all incorrect answers and show zero score', () => {
+      cy.findByText('Start Quiz').click();
+
+      cy.wait('@fetchQuestions').then(() => {
+        cy.fixture('question').then((questions) => {
+          answerQuestions(questions, false);
+
+          cy.get('.card').should('be.visible');
+          cy.findByText('Quiz Completed').should('be.visible');
+          cy.findByText(`Your score: 0/${questions.length}`).should('be.visible');
+          cy.findByText('Take New Quiz').should('be.visible');
+        });
+      });
     });
   });
 
-  it('should render the start button initially', () => {
-    cy.get('button').contains('Start Quiz').should('be.visible');
-  });
+  context('Starting a new quiz button', () => {
 
-  it('should start the quiz and display the first question', () => {
-    cy.get('button').contains('Start Quiz').click();
-    cy.wait('@getQuestions');
-    cy.get('h2').should('contain.text', 'What is the capital of France?');
-  });
-
-  it('should display options and handle answer selection', () => {
-    cy.get('button').contains('Start Quiz').click();
-    cy.wait('@getQuestions');
-
-    cy.get('[data-cy=answer-option]').should('have.length', 4);
-
-    cy.get('[data-cy=answer-option]').first().click();
-    cy.get('h2').should('not.contain.text', 'What is the capital of France?');
-  });
-
-  it('should complete the quiz and show the score', () => {
-    cy.get('button').contains('Start Quiz').click();
-    cy.wait('@getQuestions');
-
-    cy.get('[data-cy=answer-option]').each((button) => {
-      cy.wrap(button).click();
+    beforeEach(() => {
+      cy.fixture('question').then((questions) => {
+        cy.intercept('GET', '/api/questions/random', {
+          statusCode: 200,
+          body: questions,
+        }).as('fetchQuestions');
+      });
     });
 
-    cy.get('h2').should('contain.text', 'Quiz Completed');
-    cy.get('.alert-success').should('contain.text', 'Your score:');
+    it('After completed, should restart quiz', () => {
+      cy.visit('/');
+
+      cy.findByText('Start Quiz').click();
+      cy.wait('@fetchQuestions').then(() => {
+        cy.fixture('question').then((questions) => {
+          answerQuestions(questions, true);
+
+          cy.findByText('Take New Quiz').click();
+
+          answerQuestions(questions, true);
+
+          cy.get('.card').should('be.visible');
+          cy.findByText('Quiz Completed').should('be.visible');
+          cy.findByText(`Your score: ${questions.length}/${questions.length}`).should('be.visible');
+          cy.findByText('Take New Quiz').should('be.visible');
+        });
+      });
+    });
   });
 });
