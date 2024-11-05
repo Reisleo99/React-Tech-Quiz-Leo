@@ -64,8 +64,8 @@ View Scores to track your performance over time.
 ## Testing
 This project uses Cypress for both component and end-to-end testing.
 
-  -Component Testing: To test individual components.
-  -End-to-End Testing: To test the entire user flow and ensure smooth functionality.
+  - Component Testing: To test individual components.
+  - End-to-End Testing: To test the entire user flow and ensure smooth functionality.
 
 ## Walkthrough Video
 [Tech-Quiz-Video](https://drive.google.com/file/d/1-fJFvsQDYc9iL6wciz-YTPVzG2h0MgYo/view?usp=drive_link).
